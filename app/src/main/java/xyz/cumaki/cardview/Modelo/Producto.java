@@ -16,7 +16,6 @@ public class Producto {
     private String stock;
     private String brand;
     private String category;
-    private String thumbail;
     private String [] imagenes;
 
     public Producto(JSONObject a)throws JSONException {
@@ -29,13 +28,12 @@ public class Producto {
         this.stock=a.getString("stock").toString();
         this.brand=a.getString("brand").toString();
         this.category=a.getString("category").toString();
-        this.thumbail=a.getString("thumbnail").toString();
 
-        //obtener el jsonarray que contiene las url de las imagenes
+
         JSONArray detalle_imagenes = a.getJSONArray("images");
         this.imagenes = new String [detalle_imagenes.length()];
 
-        //recorrer el vector de string para guardar las url de las imagenes
+
         for (int i =0; i<detalle_imagenes.length();i++)
             this.imagenes[i]=detalle_imagenes.get(i).toString();
     }
